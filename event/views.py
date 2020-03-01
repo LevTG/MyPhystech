@@ -18,7 +18,7 @@ def home(request):
 @api_view(['GET'])
 def all_ev(request):
     es = Event.objects.all()
-    data = serializers.serialize('json', es)
+    data = MySerializer('json', es)
     return HttpResponse(data)
 
 
@@ -38,10 +38,13 @@ def add_event(req):
     res = event.save()
     return HttpResponse(event.id)
 
-# def get_events(req):
-#     data = json.loads(req.body.decode('utf8'))
-#     es = Event.objects.filter(id=data.userID,
-#                               start_time=data.date,
-#                               tags=)
-#     data = serializers.serialize('json', es)
-#     return HttpResponse(data)
+from taggit_serializer.serializers import (TagListSerializerField,
+                                           TaggitSerializer)
+
+
+class MySerializer(TaggitSerializer, serializers.ModelSerializer):
+
+    tags = TagListSerializerField()
+
+    class Meta:
+        model = YourModel
