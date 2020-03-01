@@ -30,7 +30,7 @@ def add_event(req):
         # title=data['title'],
                   location=data['location'],
                   description=data['description'],
-                  start_time=dt.datetime.strptime(data['start_time'], '%H:%M %d-%m-%Y'),
+                  start_time=dt.datetime.strptime(data['start_time'], '%H:%M %d.%m.%Y'),
                   # end_time=dt.datetime.strptime(data['end_time'], '%H:%M %d-%m-%Y'),
                   tags=data['tags'],
                   img_url=data['img_url'])
