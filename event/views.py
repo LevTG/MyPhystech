@@ -30,8 +30,8 @@ def add_event(req):
     event = Event.objects.create(title=data['title'],
                   location=data['location'],
                   description=data['description'],
-                  start_time=dt.datetime.strptime(data['start_time'], '%HH:%MM %d-%m-%Y'),
-                  end_time=dt.datetime.strptime(data['end_time'], '%HH:%MM %d-%m-%Y'),
+                  start_time=dt.datetime.strptime(data['start_time'], '%H:%M %d-%m-%Y'),
+                  end_time=dt.datetime.strptime(data['end_time'], '%H:%M %d-%m-%Y'),
                   tags=data['tags'])
                   # user_id=int(data.['user_id']))
     res = event.save(commit=True)
