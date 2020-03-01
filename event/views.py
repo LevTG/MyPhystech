@@ -26,11 +26,12 @@ def add_event(req):
     # print(req.POST)
     # print(req.body)
     data = json.loads(req.body.decode('utf8'))
-    event = Event.objects.create(title=data['title'],
+    event = Event.objects.create(
+        # title=data['title'],
                   location=data['location'],
                   description=data['description'],
                   start_time=dt.datetime.strptime(data['start_time'], '%H:%M %d-%m-%Y'),
-                  end_time=dt.datetime.strptime(data['end_time'], '%H:%M %d-%m-%Y'),
+                  # end_time=dt.datetime.strptime(data['end_time'], '%H:%M %d-%m-%Y'),
                   tags=data['tags'],
                   img_url=data['img_url'])
                   # user_id=int(data.['user_id']))
