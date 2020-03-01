@@ -7,17 +7,17 @@ from taggit.managers import TaggableManager
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=80)
-    user_id = models.IntegerField(blank=True)
-    description = models.TextField(blank=True)
-    location = models.CharField(max_length=30)
+    title = models.CharField(max_length=80, null=True)
+    user_id = models.IntegerField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    location = models.CharField(max_length=30, null=True)
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.TimeField(blank=True, null=True)
-    time_str = models.CharField(max_length=10, blank=True)
-    img_url = models.TextField(blank=True)
+    time_str = models.CharField(max_length=10, blank=True, null=True)
+    img_url = models.TextField(blank=True, null=True)
     # photo = models.ImageField(blank=True)
 
-    repeat_mode = models.CharField(max_length=20)  # once_week once_2week once
+    repeat_mode = models.CharField(max_length=20, null=True)  # once_week once_2week once
 
     tags = TaggableManager()
 
