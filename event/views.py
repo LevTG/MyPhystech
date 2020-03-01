@@ -30,20 +30,12 @@ def add_event(req):
     event = Event.objects.create(title=data['title'],
                   location=data['location'],
                   description=data['description'],
-                  start_time=parse_time(data['start_time']),
-                  end_time=parse_time(data['end_time']),
+                  start_time=dt.datetime.strptime(data['start_time'], '%HH:%MM %d-%m-%Y'),
+                  end_time=dt.datetime.strptime(data['end_time'], '%HH:%MM %d-%m-%Y'),
                   tags=data['tags'])
                   # user_id=int(data.['user_id']))
     res = event.save(commit=True)
     return HttpResponse(event.id)
-
-def parse_time(str):
-    if time_re.search(str):
-        data = time_re.search(str)
-        daytime = dt.datetime(**data.groupdict())
-    else:
-        daytime = None
-    return daytime
 
 # def get_events(req):
 #     data = json.loads(req.body.decode('utf8'))
