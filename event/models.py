@@ -14,7 +14,7 @@ class Event(models.Model):
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.TimeField(blank=True, null=True)
     time_str = models.CharField(max_length=10, blank=True)
-    url = models.TextField(blank=True)
+    img_url = models.TextField(blank=True)
     # photo = models.ImageField(blank=True)
 
     repeat_mode = models.CharField(max_length=20)  # once_week once_2week once
