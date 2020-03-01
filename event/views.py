@@ -32,9 +32,10 @@ def add_event(req):
                   description=data['description'],
                   start_time=dt.datetime.strptime(data['start_time'], '%H:%M %d-%m-%Y'),
                   end_time=dt.datetime.strptime(data['end_time'], '%H:%M %d-%m-%Y'),
-                  tags=data['tags'])
+                  tags=data['tags'],
+                  img_url=data['img_url'])
                   # user_id=int(data.['user_id']))
-    res = event.save(commit=True)
+    res = event.save()
     return HttpResponse(event.id)
 
 # def get_events(req):
