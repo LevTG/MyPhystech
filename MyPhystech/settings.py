@@ -25,7 +25,7 @@ SECRET_KEY = 'c70fs4zo%w*me=l7ik+-o*2qygaj_h1)9ht6%&iqtgjg1(%7p+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myphystech.herokuapp.com']
 
 
 # Application definition
