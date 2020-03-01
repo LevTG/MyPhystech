@@ -3,7 +3,6 @@ import re
 import datetime as dt
 
 from .models import Event
-from taggit.models import Tag
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from django.core import serializers
@@ -18,7 +17,7 @@ def home(request):
 @api_view(['GET'])
 def all_ev(request):
     es = Event.objects.all()
-    data = MySerializer('json', es)
+    data = serializers.serialize('json', es)
     return HttpResponse(data)
 
 
@@ -38,13 +37,3 @@ def add_event(req):
     res = event.save()
     return HttpResponse(event.id)
 
-from taggit_serializer.serializers import (TagListSerializerField,
-                                           TaggitSerializer)
-
-
-class MySerializer(TaggitSerializer, serializers.ModelSerializer):
-
-    tags = TagListSerializerField()
-
-    class Meta:
-        model = YourModel

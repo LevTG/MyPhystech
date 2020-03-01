@@ -5,6 +5,8 @@ from django.db import models
 from django.utils import timezone
 from taggit.managers import TaggableManager
 
+from django.core import serializers
+
 
 class Event(models.Model):
     title = models.CharField(max_length=80, null=True)
@@ -36,3 +38,4 @@ class Event(models.Model):
 
     # def __str__(self):
     #     return s
+
