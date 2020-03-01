@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from django.core import serializers
 
-
+@api_view(['GET'])
 def home(request):
     return HttpResponse('Hello world')
 
