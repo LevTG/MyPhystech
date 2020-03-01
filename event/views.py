@@ -24,7 +24,7 @@ def all_ev(request):
 @api_view(['POST', 'PUT'])
 def add_event(req):
     # print(req.POST)
-    # print(req.body)
+    print(req.body)
     data = json.loads(req.body.decode('utf8'))
     event = Event.objects.create(
         # title=data['title'],
