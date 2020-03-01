@@ -20,7 +20,7 @@ from event import views
 
 
 urlpatterns = [
-    path('/', views.home),
+    path('', views.home),
     path('admin/', admin.site.urls),
     path('all/', views.all_ev),
     path('add/', views.add_event),
